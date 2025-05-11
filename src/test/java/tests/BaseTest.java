@@ -22,7 +22,7 @@ public abstract class BaseTest {
 
     @BeforeTest(description = "TBD")
     public void setUp() {
-        RestAssured.baseURI =  System.getenv().getOrDefault("url", PropertyReader.getProperty("url"));
+        RestAssured.baseURI =  System.getProperty("url", PropertyReader.getProperty("url"));
         projectAdapter = new ProjectAdapter();
         projectFactory = new ProjectFactory();
         suiteAdapter = new SuiteAdapter();

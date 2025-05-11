@@ -16,7 +16,7 @@ public class BaseAdapter {
             .create();                                 // Builds the Gson object
 
     static RequestSpecification headerRequest = given()
-            .header("Token", System.getenv().getOrDefault("token", PropertyReader.getProperty("token")))
+            .header("Token", System.getProperty("token", PropertyReader.getProperty("token")))
             .header("Content-Type", ContentType.JSON);
 
     public Response post(String uri, String body, int expectedStatusCode) {
