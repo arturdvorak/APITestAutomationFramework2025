@@ -15,9 +15,7 @@ public abstract class BaseTest {
     protected ProjectAdapter projectAdapter;
     protected ProjectFactory projectFactory;
     protected SuiteAdapter suiteAdapter;
-    //protected CaseAdapter caseAdapter;
     protected SuiteFactory suiteFactory;
-    //protected CaseFactory caseFactory;
     protected static Faker usFaker;
 
     @BeforeTest(description = "TBD")
@@ -26,9 +24,7 @@ public abstract class BaseTest {
         projectAdapter = new ProjectAdapter();
         projectFactory = new ProjectFactory();
         suiteAdapter = new SuiteAdapter();
-        //caseAdapter = new CaseAdapter();
         suiteFactory = new SuiteFactory();
-        //caseFactory = new CaseFactory();
         usFaker = new Faker(new Locale("en-US"));
     }
 }

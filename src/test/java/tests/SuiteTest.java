@@ -9,8 +9,8 @@ public class SuiteTest extends BaseTest {
     private String projectCode;
     //private int caseId;
 
-    @Test(description = "Create a new project, a new suite and a new test case and remove all of them", enabled = true) //update name
-    public void createNewTestSuiteAndTestCase() {
+    @Test(description = "Create a new project and new suite, update suite and remove them", enabled = true) //update name
+    public void createNewTestSuite() {
         projectCode = projectAdapter.addProject(projectFactory.getProject());
 
         Suite suite = suiteFactory.getSuite();
