@@ -7,6 +7,7 @@ import com.github.javafaker.Faker;
 import io.restassured.RestAssured;
 import models.ProjectFactory;
 import models.SuiteFactory;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 import java.util.Locale;
@@ -18,7 +19,7 @@ public class BaseTest {
     protected SuiteFactory suiteFactory;
     protected static Faker usFaker;
 
-    @BeforeTest(description = "TBD")
+    @BeforeMethod(description = "TBD")
     public void setUp() {
         RestAssured.baseURI =  System.getProperty("url", PropertyReader.getProperty("url"));
         projectAdapter = new ProjectAdapter();
