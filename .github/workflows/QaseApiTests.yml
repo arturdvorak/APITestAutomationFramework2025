@@ -14,6 +14,10 @@ on:
   pull_request:
     branches: [ "master" ]
 
+  env:
+    TOKEN: ${{secrets.QASE_TOKEN}}
+    URL: ${{secrets.QASE_URL}}
+
 jobs:
   build:
 
@@ -28,4 +32,4 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn clean test
+      run: mvn clean test -Dtoken=$TOKEN -Durl=$URL
