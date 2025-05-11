@@ -8,7 +8,6 @@ import io.restassured.RestAssured;
 import models.ProjectFactory;
 import models.SuiteFactory;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 
 import java.util.Locale;
 
