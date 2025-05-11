@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeTest;
 
 import java.util.Locale;
 
-public abstract class BaseTest {
+public class BaseTest {
     protected ProjectAdapter projectAdapter;
     protected ProjectFactory projectFactory;
     protected SuiteAdapter suiteAdapter;
