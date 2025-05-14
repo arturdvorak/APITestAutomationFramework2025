@@ -1,6 +1,6 @@
 package tests;
 
-import Utils.PropertyReader;
+import utils.PropertyReader;
 import adapters.ProjectAdapter;
 import adapters.SuiteAdapter;
 import com.github.javafaker.Faker;

@@ -1,6 +1,6 @@
 package adapters;
 
-import Utils.PropertyReader;
+import utils.PropertyReader;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.qameta.allure.restassured.AllureRestAssured;
