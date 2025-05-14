@@ -3,6 +3,7 @@ package adapters;
 import Utils.PropertyReader;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -22,6 +23,7 @@ public class BaseAdapter {
     public Response post(String uri, String body, int expectedStatusCode) {
         return
                 given()
+                        .filter(new AllureRestAssured())
                         .spec(headerRequest)
                         .log().all()
                         .body(body)
@@ -36,6 +38,7 @@ public class BaseAdapter {
     public Response get(String uri, int expectedStatusCode) {
         return
                 given()
+                        .filter(new AllureRestAssured())
                         .spec(headerRequest)
                         .log().all()
                         .get(baseURI + uri)
@@ -49,6 +52,7 @@ public class BaseAdapter {
     public Response patch(String uri, String body, int expectedStatusCode) {
         return
                 given()
+                        .filter(new AllureRestAssured())
                         .spec(headerRequest)
                         .log().all()
                         .body(body)
@@ -63,6 +67,7 @@ public class BaseAdapter {
     public Response delete(String uri, int expectedStatusCode) {
         return
                 given()
+                        .filter(new AllureRestAssured())
                         .spec(headerRequest)
                         .log().all()
                         .when()

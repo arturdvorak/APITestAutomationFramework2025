@@ -5,17 +5,19 @@ import io.restassured.response.Response;
 import models.Project;
 import models.Result;
 import org.testng.Assert;
-import static org.hamcrest.CoreMatchers.equalTo;
+import io.qameta.allure.*;
 
 public class ProjectAdapter extends BaseAdapter {
     String uriAdd = "project";
 
+    @Step("Create a project with title: {project.title}")
     public String addProject(Project project) {
         Response response =  post(uriAdd, gson.toJson(project), 200);
         //response.body().path("status", String.valueOf(equalTo("true")));
         return response.body().path("result.code");
     }
 
+    @Step("Get project by code: {projectCode}")
     public Project getProject(String projectCode) {
         Response response = get(uriAdd + "/" + projectCode,200);
         Result<Project> result = gson.fromJson(response.asString(),
@@ -23,6 +25,7 @@ public class ProjectAdapter extends BaseAdapter {
         return result.getResult();
     }
 
+    @Step("Update project by code: {projectCode}")
     public void updateProject(String projectCode, Project projectToPut) {
         Response response = patch(uriAdd + "/" + projectCode, gson.toJson(projectToPut), 200);
         Result<Project> result = gson.fromJson(response.asString(),
@@ -30,6 +33,7 @@ public class ProjectAdapter extends BaseAdapter {
         Assert.assertTrue(result.isStatus());
     }
 
+    @Step("Delete project by code: {projectCode}")
     public void deleteProject(String projectCode) {
         Response response = delete(uriAdd + "/" + projectCode, 200);
         Result<Project> result = gson.fromJson(response.asString(),
