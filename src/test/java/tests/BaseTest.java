@@ -8,7 +8,7 @@ import io.restassured.RestAssured;
 import models.ProjectFactory;
 import models.SuiteFactory;
 import org.testng.annotations.BeforeMethod;
-
+import io.qameta.allure.*;
 import java.util.Locale;
 
 public class BaseTest {
@@ -18,7 +18,8 @@ public class BaseTest {
     protected SuiteFactory suiteFactory;
     protected static Faker usFaker;
 
-    @BeforeMethod(description = "TBD")
+    @BeforeMethod
+    @Step("Setup API clients and test data factories")
     public void setUp() {
         RestAssured.baseURI =  System.getProperty("url", PropertyReader.getProperty("url"));
         projectAdapter = new ProjectAdapter();

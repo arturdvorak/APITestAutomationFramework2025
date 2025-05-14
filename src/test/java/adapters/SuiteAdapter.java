@@ -7,12 +7,14 @@ import models.ErrorResult;
 import models.Result;
 import models.Suite;
 import org.testng.Assert;
+import io.qameta.allure.*;
 
 import java.util.ArrayList;
 
 public class SuiteAdapter extends BaseAdapter{
     String uriAdd = "suite/";
 
+    @Step("Create a suite with title: {suite.title}")
     public Suite addSuite(Suite suite, String projectCode) {
         Response response = post(uriAdd + projectCode, gson.toJson(suite), 200);
         Result<Suite> result = gson.fromJson(response.asString(),
@@ -28,6 +30,7 @@ public class SuiteAdapter extends BaseAdapter{
         return result.getErrorFields();
     }
 
+    @Step("Update suite {suiteId} in project {projectCode}")
     public Suite getSuite(String projectCode, int suiteId) {
         Response response = get(uriAdd + projectCode + "/" + suiteId,200);
         Result<Suite> result = gson.fromJson(response.asString(),
@@ -35,6 +38,7 @@ public class SuiteAdapter extends BaseAdapter{
         return result.getResult();
     }
 
+    @Step("Update suite {suiteId} in project {projectCode}")
     public void updateSuite(String projectCode, int suiteId, Suite suiteToPut) {
         Response response = patch(uriAdd + projectCode + "/" + suiteId, gson.toJson(suiteToPut), 200);
         Result<Suite> result = gson.fromJson(response.asString(),
@@ -42,6 +46,7 @@ public class SuiteAdapter extends BaseAdapter{
         Assert.assertTrue(result.isStatus());
     }
 
+    @Step("Delete suite {suiteId} from project {projectCode}")
     public void deleteSuite(String projectCode, int suiteId) {
         Response response = delete(uriAdd + projectCode + "/" + suiteId, 200);
         Result<Suite> result = gson.fromJson(response.asString(),
