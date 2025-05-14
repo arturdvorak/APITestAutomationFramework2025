@@ -1,0 +1,3 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Wed May 14 19:43:33 GMT 2025","Wed May 14 19:43:39 GMT 2025","6536","Surefire suite","Surefire test","tests.SuiteTest","tests.SuiteTest","createNewTestSuite","Create a new suite inside a project, update and delete both","Full lifecycle test: Project -> Suite -> Update Suite -> Delete Suite -> Delete Project"
+"passed","Wed May 14 19:43:39 GMT 2025","Wed May 14 19:43:40 GMT 2025","739","Surefire suite","Surefire test","tests.ProjectTest","tests.ProjectTest","testCreateProject","Create a new project, verify it, and then delete it","This test covers project creation, validation via GET, and cleanup via DELETE."

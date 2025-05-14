@@ -1,0 +1,3 @@
+"Epic","Feature","Story","FAILED","BROKEN","PASSED","SKIPPED","UNKNOWN"
+"Test Suites Management","Create, Update, and Delete Suite","As a user, I want to manage test suites within a project","0","0","1","0","0"
+"Projects Management","Create, Verify, and Delete Project","As a user, I want to create a project and verify its code","0","0","1","0","0"
